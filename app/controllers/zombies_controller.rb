@@ -64,9 +64,10 @@ class ZombiesController < ApplicationController
   def decomp
     @zombie = Zombie.find(params[:id]) 
     if @zombie.decomp == 'Dead(again)'
-      render json: @zombie, status: :unprocessable_entity
+      render json: @zombie.to_json(only: :decomp), 
+              status: :unprocessable_entity
     else
-      render json: @zombie, status: :ok
+      render json: @zombie.to_json(only: :decomp)
     end
   end
 
