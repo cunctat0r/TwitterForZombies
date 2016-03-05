@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305070729) do
+ActiveRecord::Schema.define(version: 20160305105541) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer "zombie_id"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20160305070729) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string   "message"
+    t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
