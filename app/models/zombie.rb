@@ -2,10 +2,11 @@ class Zombie < ActiveRecord::Base
   has_one :brain, dependent: :destroy
   has_many :assignments
   has_many :roles, through: :assignments
-  after_save :decomp_change_notification, if :decomp_changed?
+  after_save :decomp_change_notification, if: :decomp_changed?
 
   def as_json(options = nil)
-    super(options || {include: :brain. except: [:created_at, :updated_at, :id]})
+    super(options || 
+            {include: :brain, except: [:created_at, :updated_at, :id]})
   end
 
   private
