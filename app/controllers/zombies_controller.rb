@@ -61,6 +61,15 @@ class ZombiesController < ApplicationController
     end
   end
 
+  def decomp
+    @zombie = Zombie.find(params[:id]) 
+    if @zombie.decomp == 'Dead(again)'
+      render json: @zombie, status: :unprocessable_entity
+    else
+      render json: @zombie, status: :ok
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_zombie
