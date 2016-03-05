@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  
   resources :zombies do
-    resourses :tweets
+    resources :tweets
     get :decomp, on: :member
   end
   # The priority is based upon order of creation: first created -> highest priority.
